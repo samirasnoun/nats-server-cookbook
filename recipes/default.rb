@@ -18,11 +18,13 @@
 #
 include_recipe 'cloudfoundry-common'
 
+include_recipe "nats-server::install_config_ruby"
+
 gem_binaries_path = File.join(rbenv_root, "versions", node.cloudfoundry_common.ruby_1_9_2_version, "bin")
 
-rbenv_gem "nats" do
-  ruby_version node.cloudfoundry_common.ruby_1_9_2_version
-end
+#rbenv_gem "nats --version 0.4.26" do
+#  ruby_version node.cloudfoundry_common.ruby_1_9_2_version
+#end
 
 cloudfoundry_component "nats-server" do
   component_name "nats-server"
