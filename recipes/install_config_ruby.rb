@@ -1,13 +1,6 @@
-
-
-
-
-e = execute "apt-get update" do
-  action :nothing
-end
-
 g = gem_package "nats" do
   action :nothing
+  version "0.4.26"
 end
 
 g.run_action(:install)
