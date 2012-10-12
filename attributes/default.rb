@@ -17,3 +17,8 @@ default[:nats_server][:pid_file]   = File.join(node[:cloudfoundry_common][:pid_d
 
 # Where to write Nats's logs.
 default[:nats_server][:log_file]   = File.join(node[:cloudfoundry_common][:log_dir], "nats-server.log")
+
+default['nats_server']['cf_session']['cf_id'] = '1'
+default['nats_server']['cf_session']['name'] = ''
+
+#default['nats_server']['cf_session']['domain'] = 'cf-session.vcap.me'

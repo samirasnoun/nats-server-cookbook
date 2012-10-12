@@ -16,6 +16,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+#Chef::Log.warn("################# ATTRIBUTE  domain #################" + node['nats_server']['cf_session']['domain'])
+#Chef::Log.warn("################# ATTRIBUTE  id #################" + node['nats_server']['cf_session']['uuid'])
+
+id_node = node['nats_server']['cf_session']['cf_id']
+Chef::Log.warn("#########################################################['nats_server']['cf_session']['cf_id'] =  " + id_node)
+
+node.set['cloudfoundry_common']['cf_session']['id'] = node['nats_server']['cf_session']['cf_id']
 include_recipe 'cloudfoundry-common'
 include_recipe "nats-server::install_rack"
 
