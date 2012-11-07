@@ -22,7 +22,10 @@
 id_node = node['nats_server']['cf_session']['cf_id']
 Chef::Log.warn("#########################################################['nats_server']['cf_session']['cf_id'] =  " + id_node)
 
-node.set['cloudfoundry_common']['cf_session']['id'] = node['nats_server']['cf_session']['cf_id']
+node.set['cloudfoundry_common']['cf_session']['cf_id'] = node['nats_server']['cf_session']['cf_id']
+
+node.save
+
 include_recipe 'cloudfoundry-common'
 include_recipe "nats-server::install_rack"
 
